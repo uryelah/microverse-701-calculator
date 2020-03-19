@@ -7,7 +7,7 @@ function Button(props) {
   const colors = {
     grey: '#e0e0e0',
     orange: '#f5913e',
-  }
+  };
 
   const buttonStyles = {
     flexBasis: wide ? '50%' : '25%',
@@ -18,7 +18,7 @@ function Button(props) {
     fontWeight: 400,
     fontSize: '1.25rem',
     backgroundColor: colors[color],
-  }
+  };
 
   const idMaker = name => {
     let id;
@@ -70,6 +70,6 @@ Button.propTypes = {
 Button.defaultProps = {
   color: 'orange',
   wide: false,
-}
+};
 
 export default Button;

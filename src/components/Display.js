@@ -12,8 +12,8 @@ function Display(props) {
     padding: '10px 20px',
     justifyContent: 'right',
     fontSize: '3rem',
-    ...styles
-  }
+    ...styles,
+  };
 
   return (
     <div style={displayStyles} className="calc-dilplay">
@@ -24,6 +24,7 @@ function Display(props) {
 
 Display.propTypes = {
   result: PropTypes.string,
+  styles: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 Display.defaultProps = {

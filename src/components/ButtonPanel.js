@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 function ButtonPanel(props) {
@@ -6,13 +7,13 @@ function ButtonPanel(props) {
 
   const panelStyles = {
     flexDirection: 'column',
-    ...styles
-  }
+    ...styles,
+  };
 
   const rowStyles = {
     height: 100,
-    display: 'flex'
-  }
+    display: 'flex',
+  };
 
   return (
     <div style={panelStyles} className="calc-panel">
@@ -41,12 +42,16 @@ function ButtonPanel(props) {
         <Button name="+" />
       </div>
       <div style={rowStyles}>
-        <Button wide={true} color="grey" name="0" />
+        <Button wide color="grey" name="0" />
         <Button color="grey" name="." />
         <Button name="=" />
       </div>
     </div>
   );
 }
+
+ButtonPanel.propTypes = {
+  styles: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default ButtonPanel;
