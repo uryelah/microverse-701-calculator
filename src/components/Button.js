@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Button(props) {
   const { name } = props;
 
-  const idMaker = (name) => {
+  const idMaker = name => {
     let id;
     switch (name) {
       case '+/-':
