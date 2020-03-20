@@ -22,12 +22,12 @@ const calculate = (obj, buttonName) => {
     case '9':
       if (operation) {
         if (next) {
-          resultObj.next = `${(next * 1) + (buttonName * 1)}`;
+          resultObj.next = next + buttonName;
         } else {
           resultObj.next = buttonName;
         }
       } else if (next) {
-        resultObj.next = `${(next * 1) + (buttonName * 1)}`;
+        resultObj.next = next + buttonName;
         resultObj.total = null;
       } else {
         resultObj.next = buttonName;
