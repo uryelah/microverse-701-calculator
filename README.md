@@ -37,7 +37,7 @@
 This project is a simple calculator webapp made with React JS and deployed with Heroku.
 
 <div align="center">
-  <!--<img src="" width="900">-->
+  <img src="./public/img/Screenshot_2020-03-20 React Calculator.png" width="900">
 </div>
 
 <!-- ABOUT THE PROJECT -->
