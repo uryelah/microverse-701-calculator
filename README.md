@@ -34,11 +34,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a dynamically rendered restaurant page.
-Each tab('home', 'contact', 'about', 'menu') is in its own javascript file at /src and imported to index.js to be rendered when a nav link is clicked. The adding and removing html from the page, as well as the entering and leaving css animation, are handled by the pageFactory methods from where each page is made.
+This project is a simple calculator webapp made with React JS and deployed with Heroku.
 
 <div align="center">
-  <img src="" width="900">
+  <img src="./public/img/Screenshot_2020-03-20 React Calculator.png" width="900">
 </div>
 
 <!-- ABOUT THE PROJECT -->
@@ -53,7 +52,9 @@ Your default browser should open the app at the localhost:8080
 This project was built using these technologies.
 * HTML
 * CSS3
-* Vanila Javascript
+* React
+* Heroku
+* Babel
 * Webpack
 
 <!-- CONTACT -->
