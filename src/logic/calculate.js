@@ -35,6 +35,7 @@ const calculate = (obj, buttonName) => {
       }
       break;
     case 'AC':
+      resultObj.calcPath = [];
       resultObj.next = null;
       resultObj.total = null;
       resultObj.operation = null;
@@ -70,10 +71,22 @@ const calculate = (obj, buttonName) => {
     case '+/-':
       if (next) {
         resultObj.next = `${-1 * parseFloat(next)}`;
-      } else if (obj.total) {
+      } else if (total) {
         resultObj.total = `${-1 * parseFloat(total)}`;
       } else {
         resultObj = {};
+      }
+      break;
+    case '%':
+      if (total) {
+        resultObj.total = operate(total, !next ? 100 : next, buttonName);
+        resultObj.next = null;
+        resultObj.operation = null;
+      } else {
+        resultObj.total = null;
+        resultObj.next = null;
+        resultObj.operation = null;
+        resultObj.calcPath = [];
       }
       break;
     default:
@@ -89,6 +102,27 @@ const calculate = (obj, buttonName) => {
         resultObj.operation = buttonName;
       }
   }
+
+  if (resultObj.next) {
+    if (buttonName === '.') {
+      resultObj.calcPath.splice(resultObj.calcPath.length - 1, 1);
+      resultObj.calcPath[resultObj.calcPath.length - 1] = resultObj.next;
+    } else if (resultObj.calcPath[resultObj.calcPath.length - 1] && resultObj.calcPath[resultObj.calcPath.length - 1].match(/\./)) {
+      resultObj.calcPath[resultObj.calcPath.length - 1] = resultObj.next;
+    } else {
+      resultObj.calcPath.push(resultObj.next);
+    }
+  }
+
+  if (resultObj.operation
+    && resultObj.calcPath[resultObj.calcPath.length - 1] !== resultObj.operation) {
+    if (['-', '+', 'x', 'X', '÷', '%', '+/-', '/'].includes(resultObj.calcPath[resultObj.calcPath.length - 1])) {
+      resultObj.calcPath[resultObj.calcPath.length - 1] = resultObj.operation;
+    } else if (buttonName !== '.') {
+      resultObj.calcPath.push(resultObj.operation);
+    }
+  }
+
 
   return resultObj;
 };

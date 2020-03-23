@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button(props) {
-  const { name, color, wide } = props;
-
+function Button({
+  name, color, wide, onClick,
+}) {
   const colors = {
     grey: '#e0e0e0',
     orange: '#f5913e',
@@ -54,8 +54,12 @@ function Button(props) {
     return id;
   };
 
+  const handleCLick = () => {
+    onClick(name);
+  };
+
   return (
-    <button type="button" name={name} id={`btn_${idMaker(name)}`} className="calc-btn" style={buttonStyles}>
+    <button type="button" name={name} id={`btn_${idMaker(name)}`} className="calc-btn" style={buttonStyles} onClick={handleCLick}>
       {name}
     </button>
   );
@@ -65,6 +69,7 @@ Button.propTypes = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string,
   wide: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {
