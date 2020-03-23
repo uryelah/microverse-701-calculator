@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Display(props) {
-  const { result, styles, top } = props;
-
+function Display({ result, styles, top }) {
   const displayStyles = {
     backgroundColor: '#858694',
     height: 100,
