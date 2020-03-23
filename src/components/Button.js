@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ name, color, wide, onClick }) {
+function Button({
+  name, color, wide, onClick,
+}) {
   const colors = {
     grey: '#e0e0e0',
     orange: '#f5913e',
